@@ -1,0 +1,76 @@
+{
+  "pets": [
+    {
+      "id": "G-0001",
+      "status": "allergy",
+      "petName": "Zedio Update",
+      "pawrent": "John Update",
+      "gender": "Female",
+      "breed": "Golden Retriever",
+      "dob": "2024-01-26",
+      "phone": "09345678",
+      "postalCode": "11011",
+      "address": "Rm 002, G/Flr, Pazundaung St"
+    },
+    {
+      "id": "I-56789",
+      "status": "allergy",
+      "petName": "Latifah Pate",
+      "pawrent": "Tempor placeat face",
+      "gender": "Male",
+      "breed": "Ea voluptatibus ulla",
+      "dob": "1999-01-25",
+      "phone": "09345678",
+      "postalCode": "100",
+      "address": "Dicta soluta sed per"
+    },
+    {
+      "id": "G-0003",
+      "status": "picky",
+      "petName": "dan update",
+      "pawrent": "james update",
+      "gender": "Male",
+      "breed": "Golden Retriever",
+      "dob": "2024-01-25",
+      "phone": "0987654321",
+      "postalCode": "11011",
+      "address": "insein update"
+    },
+    {
+      "id": "E-7800",
+      "status": "picky",
+      "petName": "Driscoll Lindsay",
+      "pawrent": "Quis facilis eligend",
+      "gender": "Female",
+      "breed": "Golden Retriever",
+      "dob": "1975-06-21",
+      "phone": "094567823",
+      "postalCode": "12",
+      "address": "Voluptates magna qui"
+    },
+    {
+      "id": "E-67890",
+      "status": "allergy",
+      "petName": "Something update",
+      "pawrent": "some1 update",
+      "gender": "Female",
+      "breed": "Golden Retriever",
+      "dob": "2024-01-17",
+      "phone": "093456789",
+      "postalCode": "23433",
+      "address": "yangon"
+    },
+    {
+      "id": "G-67890",
+      "status": "allergy",
+      "petName": "one",
+      "pawrent": "two",
+      "gender": "Female",
+      "breed": "Beagle",
+      "dob": "2024-01-19",
+      "phone": "23456789",
+      "postalCode": "123",
+      "address": "May"
+    }
+  ]
+}
