@@ -6,7 +6,7 @@
 
 **## Description**
 
-This project is a simple veterinary clinic management system built with React JS, Redux, and a JSON server. It provides essential CRUD (Create, Read, Update, Delete) functionalities for patient records, along with features for searching, filtering, and pagination.
+This project is a streamlined veterinary clinic application built with React JS, Redux, and a JSON server. It provides essential features for managing patient records on a single, user-friendly page.
 
 **## Tech Stack**
 
@@ -19,9 +19,9 @@ This project is a simple veterinary clinic management system built with React JS
 - Update existing patient information
 - Delete patient records
 - Search patients by keywords
-- Filter patients by status (e.g., active, inactive)
+- Filter patients by status (e.g., picky eaters, allergy)
 - Filter patients by breed
-- Display a paginated list of patients with customizable rows per page
+- Display a list of patients with customizable rows per page
 
 **## Installation**
 
@@ -45,7 +45,7 @@ This project is a simple veterinary clinic management system built with React JS
    ```bash
    npm run dev
    ```
-3. Access the application in your browser at `http://localhost:3000`
+3. Access the application in your browser at `http://localhost:5173`
 
 **## Contributing**
 
