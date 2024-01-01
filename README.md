@@ -6,7 +6,7 @@
 
 **## Description**
 
-This project is a streamlined veterinary clinic application built with React JS, Redux, and a JSON server. It provides essential features for managing patient records on a single, user-friendly page.
+This project is a streamlined veterinary clinic web page built with React JS, Redux, and a JSON server. It provides essential features for managing patient records on a single, user-friendly page.
 
 **## Tech Stack**
 
