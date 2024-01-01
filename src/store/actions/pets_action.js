@@ -30,7 +30,7 @@ export const deletePet = (petId) => {
       type: ActionTypes.DELETE_PET,
       payload: petId,
     });
-    toast.success("Patient deleted successfully");
+    toast.warn("Patient deleted successfully");
   };
 };
 

@@ -219,7 +219,7 @@ const UpdatePetForm = ({ closeModal }) => {
         <div className="text-end">
           <button
             type="submit"
-            className="w-36 py-2 mb-2 text-sm font-medium text-white focus:outline-none bg-primary rounded-md border first:focus:z-10">
+            className="w-36 py-2 mb-2 text-sm font-medium text-neutral-800 focus:outline-none bg-[#EDC339] rounded-md border first:focus:z-10">
             Update
           </button>
         </div>

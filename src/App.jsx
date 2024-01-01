@@ -11,13 +11,15 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <Provider store={store}>
-        <RouterProvider router={router}></RouterProvider>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={2000}
-          closeOnClick
-          pauseOnHover
-        />
+      <RouterProvider router={router}></RouterProvider>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+        className={"toast-container"}
+      />
     </Provider>
   );
 };

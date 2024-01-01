@@ -11,3 +11,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+.toast-container {
+  font-size: 14px;
+}
