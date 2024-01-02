@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { PetSchema } from "../lib/validations/petSchema";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePet } from "../store/actions";
+import { statuses, breeds } from "./constants/option";
 
 const UpdatePetForm = ({ closeModal }) => {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ const UpdatePetForm = ({ closeModal }) => {
             id="ID"
             name="id"
             {...register("id")}
+            disabled
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
             placeholder="G-000124"></input>
           <p className="text-red-600 text-xs mt-1">{errors.id?.message}</p>
@@ -64,8 +66,11 @@ const UpdatePetForm = ({ closeModal }) => {
             name="status"
             {...register("status")}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 ">
-            <option value="picky">Picky eater</option>
-            <option value="allergy">Allergy</option>
+            {statuses.map((status) => (
+              <option key={status.key} value={status.value}>
+                {status.key}
+              </option>
+            ))}
           </select>
           <p className="text-red-600 text-xs mt-1">{errors.status?.message}</p>
         </div>
@@ -141,13 +146,17 @@ const UpdatePetForm = ({ closeModal }) => {
           <label htmlFor="breed" className="block mb-2 text-sm text-gray-900">
             Breed
           </label>
-          <input
-            type="text"
+          <select
             id="breed"
             name="breed"
             {...register("breed")}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
-            placeholder="Golden Retriever"></input>
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 ">
+            {breeds.map((breed) => (
+              <option key={breed.key} value={breed.value}>
+                {breed.key}
+              </option>
+            ))}
+          </select>
           <p className="text-red-600 text-xs mt-1">{errors.breed?.message}</p>
         </div>
 

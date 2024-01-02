@@ -150,8 +150,7 @@ const PetsList = () => {
             id="pagination"
             value={limit}
             onChange={handleLimitChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-xl focus:ring-0 focus:border-gray-300 block w-[70px] py-2.5 px-4">
-            <option value="3">3</option>
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-xl focus:ring-0 focus:border-gray-300 block w-[72px] py-2.5 px-4">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>
@@ -220,7 +219,7 @@ const PetsList = () => {
                         <img src="/picky eater.png" />
                       )}
                     </td>
-                    <td className="px-3 py-4">
+                    <td scope="row" className="px-3 py-4 whitespace-nowrap">
                       {row.pawrent ? row.pawrent : "N/A"}
                     </td>
                     <td scope="row" className="px-3 py-4 whitespace-nowrap">
@@ -245,7 +244,7 @@ const PetsList = () => {
                       <button
                         className="relative"
                         onClick={() => toggleActions(index)}>
-                        <img src="/more.png" alt="more icon" width={18} />
+                        <img src="/more.png" alt="more icon" width={18}/>
 
                         {openActions === index && (
                           <div className="absolute z-70 top-5 right-2 divide-y bg-white divide-gray-100 rounded shadow border w-36">

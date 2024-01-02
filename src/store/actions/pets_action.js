@@ -1,6 +1,7 @@
 import { ActionTypes } from "../constants/actionTypes";
 import { apiCall } from "../../services/apiService";
 import { toast } from "react-toastify";
+import { Trophy } from "lucide-react";
 
 export const getPets = () => {
   return async (dispatch) => {
@@ -14,12 +15,22 @@ export const getPets = () => {
 
 export const addPet = (newPet) => {
   return async (dispatch) => {
-    const res = await apiCall("pets", "post", newPet);
-    dispatch({
-      type: ActionTypes.ADD_PET,
-      payload: res.data,
-    });
-    toast.success("Patient added successfully");
+    try {
+      const res = await apiCall("pets", "post", newPet);
+      dispatch({
+        type: ActionTypes.ADD_PET,
+        payload: res.data,
+      });
+      toast.success("Patient added successfully");
+    } catch (error) {
+      const { data } = error.response;
+      if (data?.includes("Insert failed, duplicate id")) {
+        toast.error("Patient with this ID already exists", {
+          position: "top-center",
+          autoClose: 5000,
+        });
+      }
+    }
   };
 };
 
