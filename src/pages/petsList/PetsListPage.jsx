@@ -13,7 +13,7 @@ import {
 } from "../../store/actions";
 import { statuses, breeds } from "../../components/constants/option";
 
-const PetsList = () => {
+const PetsListPage = () => {
   const dispatch = useDispatch();
 
   const [modal, setModal] = useState(false);
@@ -84,15 +84,15 @@ const PetsList = () => {
   const handleLimitChange = (e) => {
     setLimit(e.target.value);
     dispatch(setLimitRows(e.target.value));
-  }
+  };
 
   useEffect(() => {
     dispatch(getPets());
   }, []);
 
   return (
-    <div className="bg-white m-5 rounded-md p-6 mb-60">
-      <p className="text-xl  font-medium text-primary pb-6">Patient Lists</p>
+    <div className="bg-white m-5 rounded-md p-4 mb-60">
+      <p className="text-xl font-medium text-primary pb-6">Patient Lists</p>
 
       <div className="flex items-center justify-between">
         <div className="flex items-center border px-4 border-gray-300 rounded-xl">
@@ -116,7 +116,7 @@ const PetsList = () => {
         </button>
       </div>
 
-      <div className="mb-10 mt-4 flex justify-between">
+      <div className="mb-6 mt-4 flex justify-between">
         <div className="flex gap-4">
           <select
             id="status"
@@ -158,10 +158,10 @@ const PetsList = () => {
         </div>
       </div>
 
-      <div className="mt-6">
-        <div className="relative overflow-x-auto min-h-[600px] rounded-xl border bg-white">
-          <table className="w-full h-full text-sm text-left rtl:text-right text-gray-500">
-            <thead className="text-sm text-primary border-b bg-white">
+      <div className="mt-2">
+        <div className="relative rounded-xl border bg-white h-[340px] overflow-y-auto">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead className="text-sm sticky top-0 text-primary border-b bg-white">
               <tr>
                 <th scope="col" className="px-3 py-6 text-center">
                   No
@@ -190,16 +190,13 @@ const PetsList = () => {
                 <th scope="row" className="px-3 py-3 whitespace-nowrap">
                   Phone Number
                 </th>
-                <th scope="row" className="px-3 py-3 whitespace-nowrap">
-                  Postal Code
-                </th>
                 <th scope="col" className="px-3 py-3">
                   Address
                 </th>
                 <th scope="col" className="px-4 py-3"></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="h-[200px] overflow-y-auto">
               {filteredPets?.length !== 0 ? (
                 filteredPets?.map((row, index) => (
                   <tr
@@ -234,17 +231,14 @@ const PetsList = () => {
                     <td className="px-3 py-4">
                       {row.phone ? row.phone : "N/A"}
                     </td>
-                    <td className="px-3 py-4">
-                      {row.postalCode ? row.postalCode : "N/A"}
-                    </td>
-                    <td scope="row" className="px-3 py-4 whitespace-nowrap">
+                    <td scope="row" className="px-3 py-4">
                       {row.address ? row.address : "N/A"}
                     </td>
                     <td className="px-3 py-4">
                       <button
                         className="relative"
                         onClick={() => toggleActions(index)}>
-                        <img src="/more.png" alt="more icon" width={18}/>
+                        <img src="/more.png" alt="more icon" width={18} />
 
                         {openActions === index && (
                           <div className="absolute z-70 top-5 right-2 divide-y bg-white divide-gray-100 rounded shadow border w-36">
@@ -317,4 +311,4 @@ const PetsList = () => {
   );
 };
 
-export default PetsList;
+export default PetsListPage;

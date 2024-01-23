@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
-import PetsList from "../pages/petsList/PetsList";
+import PetsListPage from "../pages/petsList/PetsListPage";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <PetsList />,
+        element: <PetsListPage />,
       },
     ],
   },

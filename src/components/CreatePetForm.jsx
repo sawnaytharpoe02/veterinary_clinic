@@ -4,7 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { PetSchema } from "../lib/validations/petSchema";
 import { useDispatch } from "react-redux";
 import { addPet } from "../store/actions";
-import { statuses, breeds } from "./constants/option";
+import { statuses, breeds, cities, townships } from "./constants/option";
+import generateUniqueRandomString from "../utils/generateRandomString";
 
 const CreatePetForm = ({ closeModal }) => {
   const {
@@ -18,6 +19,7 @@ const CreatePetForm = ({ closeModal }) => {
   const dispatch = useDispatch();
 
   const submitData = (data) => {
+    data.id = generateUniqueRandomString();
     dispatch(addPet(data));
     closeModal(false);
   };
@@ -25,19 +27,18 @@ const CreatePetForm = ({ closeModal }) => {
   return (
     <form onSubmit={handleSubmit(submitData)}>
       <div className="grid gap-x-4 gap-y-3 mb-6 md:grid-cols-2">
-        {/* ID */}
+        {/* Pet Name */}
         <div className="text-start">
-          <label htmlFor="ID" className="block mb-2 text-sm text-gray-900">
-            ID
+          <label htmlFor="petName" className="block mb-2 text-sm text-gray-900">
+            Pet Name
           </label>
           <input
             type="text"
-            id="ID"
-            name="id"
-            {...register("id")}
+            id="petName"
+            {...register("petName")}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
-            placeholder="G-000124"></input>
-          <p className="text-red-600 text-xs mt-1">{errors.id?.message}</p>
+            placeholder="Zedio"></input>
+          <p className="text-red-600 text-xs mt-1">{errors.petName?.message}</p>
         </div>
 
         {/* Status */}
@@ -59,20 +60,6 @@ const CreatePetForm = ({ closeModal }) => {
           <p className="text-red-600 text-xs mt-1">{errors.status?.message}</p>
         </div>
 
-        {/* Pet Name */}
-        <div className="text-start">
-          <label htmlFor="petName" className="block mb-2 text-sm text-gray-900">
-            Pet Name
-          </label>
-          <input
-            type="text"
-            id="petName"
-            {...register("petName")}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
-            placeholder="Zedio"></input>
-          <p className="text-red-600 text-xs mt-1">{errors.petName?.message}</p>
-        </div>
-
         {/* Pawrent */}
         <div className="text-start">
           <label htmlFor="pawrent" className="block mb-2 text-sm text-gray-900">
@@ -85,6 +72,25 @@ const CreatePetForm = ({ closeModal }) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
             placeholder="John"></input>
           <p className="text-red-600 text-xs mt-1">{errors.pawrent?.message}</p>
+        </div>
+
+        {/* Breed */}
+        <div className="text-start">
+          <label htmlFor="breed" className="block mb-2 text-sm text-gray-900">
+            Breed
+          </label>
+          <select
+            id="breed"
+            name="breed"
+            {...register("breed")}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 ">
+            {breeds.map((breed) => (
+              <option key={breed.key} value={breed.value}>
+                {breed.key}
+              </option>
+            ))}
+          </select>
+          <p className="text-red-600 text-xs mt-1">{errors.breed?.message}</p>
         </div>
 
         {/* Gender */}
@@ -125,25 +131,6 @@ const CreatePetForm = ({ closeModal }) => {
           <p className="text-red-600 text-xs mt-1">{errors.gender?.message}</p>
         </div>
 
-        {/* Breed */}
-        <div className="text-start">
-          <label htmlFor="breed" className="block mb-2 text-sm text-gray-900">
-            Breed
-          </label>
-          <select
-            id="breed"
-            name="breed"
-            {...register("breed")}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 ">
-            {breeds.map((breed) => (
-              <option key={breed.key} value={breed.value}>
-                {breed.key}
-              </option>
-            ))}
-          </select>
-          <p className="text-red-600 text-xs mt-1">{errors.breed?.message}</p>
-        </div>
-
         {/* Date of Birth */}
         <div className="text-start">
           <label htmlFor="dob" className="block mb-2 text-sm text-gray-900">
@@ -158,10 +145,10 @@ const CreatePetForm = ({ closeModal }) => {
           <p className="text-red-600 text-xs mt-1">{errors.dob?.message}</p>
         </div>
 
-        {/* Phone */}
+        {/* Contact Phone No */}
         <div className="text-start">
           <label htmlFor="phone" className="block mb-2 text-sm text-gray-900">
-            Phone
+            Contact Phone No
           </label>
           <input
             type="number"
@@ -171,25 +158,6 @@ const CreatePetForm = ({ closeModal }) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 "
             placeholder="09 123 456 789"></input>
           <p className="text-red-600 text-xs mt-1">{errors.phone?.message}</p>
-        </div>
-
-        {/* Postal code */}
-        <div className="text-start">
-          <label
-            htmlFor="postalCode"
-            className="block mb-2 text-sm text-gray-900">
-            Postal Code
-          </label>
-          <input
-            type="number"
-            id="postalCode"
-            name="postalCode"
-            {...register("postalCode")}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
-            placeholder="11011"></input>
-          <p className="text-red-600 text-xs mt-1">
-            {errors.postalCode?.message}
-          </p>
         </div>
 
         {/* Address */}
@@ -207,6 +175,46 @@ const CreatePetForm = ({ closeModal }) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6"
             placeholder="145. 6th Street, Insein, Yangon"></input>
           <p className="text-red-600 text-xs mt-1">{errors.address?.message}</p>
+        </div>
+
+        {/* City */}
+        <div className="text-start">
+          <label htmlFor="city" className="block mb-2 text-sm text-gray-900">
+            City
+          </label>
+          <select
+            id="city"
+            name="city"
+            {...register("city")}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 ">
+            {cities.map((city) => (
+              <option key={city.key} value={city.value}>
+                {city.key}
+              </option>
+            ))}
+          </select>
+          <p className="text-red-600 text-xs mt-1">{errors.city?.message}</p>
+        </div>
+
+        {/* Town Ship */}
+        <div className="text-start">
+          <label
+            htmlFor="township"
+            className="block mb-2 text-sm text-gray-900">
+            Township
+          </label>
+          <select
+            id="township"
+            name="township"
+            {...register("township")}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.6 ">
+            {townships.map((town) => (
+              <option key={town.key} value={town.value}>
+                {town.key}
+              </option>
+            ))}
+          </select>
+          <p className="text-red-600 text-xs mt-1">{errors.town?.message}</p>
         </div>
 
         <div className="text-end">

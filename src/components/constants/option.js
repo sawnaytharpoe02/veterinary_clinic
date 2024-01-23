@@ -10,3 +10,19 @@ export const breeds = [
   { key: "Bulldog", value: "Bulldog" },
   { key: "Spaniel", value: "Spaniel" },
 ];
+
+export const townships = [
+  {key: "Mayangone", value: "Mayangone"},
+  {key: "Sanchaung", value: "Sanchaung"},
+  {key: "Hlaing", value: "Hlaing"},
+  {key: "Kamayut", value: "Kamayut"},
+  {key: "Thingangyun", value: "Thingangyun"},
+]
+
+export const cities = [
+  {key: "Yangon", value: "Yangon"},
+  {key: "Magway", value: "Magway"},
+  {key: "Manadalay", value: "Manadalay"},
+  {key: "Mawlamyine", value: "Mawlamyine"},
+  {key: "Naypyidaw", value: "Naypyidaw"},
+]
