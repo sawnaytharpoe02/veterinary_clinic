@@ -38,14 +38,19 @@ This project is a streamlined veterinary clinic web page built with React JS, Re
 **## Usage**
 
 1. Start the JSON server:
+2. If you don't have json server run:
+   ```bash
+   npm install -g json-serever
+   ```
+   
    ```bash
    npm run server
    ```
-2. Start the React development server:
+4. Start the React development server:
    ```bash
    npm run dev
    ```
-3. Access the application in your browser at `http://localhost:5173`
+5. Access the application in your browser at `http://localhost:5173`
 
 **## Contributing**
 
