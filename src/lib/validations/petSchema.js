@@ -1,10 +1,6 @@
 import * as yup from "yup";
 
 export const PetSchema = yup.object({
-  // id: yup
-  //   .string()
-  //   .max(10, "Id must be at most 10 characters")
-  //   .required("ID is required"),
   petName: yup.string().required("Pet name is required"),
   status: yup.string().required("Status is required"),
   gender: yup.string().required("Gender is required"),
